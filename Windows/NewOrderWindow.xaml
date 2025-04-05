@@ -1,0 +1,33 @@
+﻿<Window x:Class="EquipmentForRent.Windows.NewOrderWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:EquipmentForRent.Windows"
+        mc:Ignorable="d"
+        Title="NewOrderWindow" Height="450" Width="450">
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="https://img.freepik.com/premium-vector/white-backdrop-beautiful-abstract-background_36991-16.jpg" 
+Stretch="UniformToFill"/>
+        </Grid.Background>
+        <TextBlock FontSize="18" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,20,0,0">
+            Оформить заказ
+        </TextBlock>
+
+        <StackPanel Margin="20,50,20,20" HorizontalAlignment="Center">
+            <TextBlock FontSize="15">Оборудование:</TextBlock>
+            <TextBlock x:Name="EquipmentName" FontSize="16" FontWeight="Bold" />
+
+            <TextBlock FontSize="15" Margin="0,20,0,0">Цена за день:</TextBlock>
+            <TextBlock x:Name="PricePerDay" FontSize="16" FontWeight="Bold" />
+
+            <TextBlock FontSize="15" Margin="0,20,0,0">Дата окончания аренды:</TextBlock>
+            <DatePicker x:Name="EndDatePicker" FontSize="15" />
+        </StackPanel>
+        <Button Content="Оформить заказ"  VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="10"
+        Click="ConfirmOrderButton_Click"  Width="164" Height="40"/>
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Margin="10"
+        Click="BackButton_Click"/>
+    </Grid>
+</Window>

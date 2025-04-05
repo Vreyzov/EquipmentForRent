@@ -1,0 +1,36 @@
+﻿<Page x:Class="EquipmentForRent.Pages.ClientsOrdersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      Title="Client Orders Page">
+
+    <Grid>
+        <TextBlock Text="Ваши заказы" FontSize="24" FontWeight="Bold" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10"/>
+
+        <!-- Список заказов с прокруткой -->
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled" Margin="10,50,10,80">
+            <ListBox Name="OrdersListBox">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <!-- Информация о заказе -->
+                            <TextBlock Text="{Binding Equipment.Name}" FontWeight="Bold"/>
+                            <TextBlock Text="{Binding Equipment.PricePerDay, StringFormat='Цена за день: {0}₽'}"/>
+                            <TextBlock Text="{Binding StartDate, StringFormat='Дата начала: {0:dd.MM.yyyy}'}"/>
+                            <TextBlock Text="{Binding EndDate, StringFormat='Дата окончания: {0:dd.MM.yyyy}'}"/>
+                            <TextBlock Text="{Binding TotalCost, StringFormat='Итоговая стоимость: {0:C}₽'}"/>
+
+                            <!-- Информация о арендодателе -->
+                            <TextBlock Text="{Binding LessorFullName}" FontStyle="Italic" Foreground="Gray" />
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </ScrollViewer>
+
+        <!-- Кнопка продления аренды -->
+        <Button Content="Продлить аренду" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="200" Height="50" Margin="0,0,10,10" Click="ExtendRentalButton_Click"/>
+
+        <!-- Кнопка "Назад" -->
+        <Button Content="Назад" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="100" Height="50" Margin="10,0,0,10" Click="BackButton_Click"/>
+    </Grid>
+</Page>
